@@ -1,7 +1,7 @@
 buildscript {
     ext.kotlin_version = "1.4.21"
     repositories {
-        maven {url 'http://developer.huawei.com/repo/'}// 华为仓，如果不集成华为可以不加
+
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url "https://jitpack.io" }

@@ -5,8 +5,19 @@ apply plugin: "com.android.application"
 //apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply plugin: 'com.github.dcendents.android-maven'
-group = 'com.github.base'
+group='com.github.wjqandroid'
+
 android {
+//    publishing {
+//    publications {
+//        mavenJava(MavenPublication) {
+//            groupId = 'com.github.wjqandroid'
+//            artifactId = 'library'
+//            version = '1.1'
+//            from components.java
+//        }
+//    }
+//}
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
 

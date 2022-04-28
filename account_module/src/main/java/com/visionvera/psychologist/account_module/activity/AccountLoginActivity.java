@@ -61,13 +61,8 @@ public class AccountLoginActivity extends BaseMVPActivity<IContract.AccountLogin
     //是否返回跳转前的界面
     @Autowired(name = Constant.IntentKey.requestReturnCode)
     public int requestReturnCode;
-
-//    @BindView(R2.id.et_password)
     EditText etPassword;
-//    @BindView(R2.id.et_phoneNumber)
     EditText etPhoneNumber;
-//
-//    @BindView(R2.id.checkBox)
     CheckBox checkBox;
 
     private AccountLoginIntentBean accountLoginIntentBean;
