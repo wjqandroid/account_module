@@ -1,11 +1,10 @@
-apply plugin: 'com.jakewharton.butterknife'
 apply plugin: "maven-publish"
+//apply plugin: "upload"
+//apply plugin: "com.android.application"
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
 apply plugin: 'com.github.dcendents.android-maven'
-//控制lib模式或app模式
-//apply plugin: 'com.android.library'
-apply plugin: 'com.android.application'
-
-
+group = 'com.github.base'
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
     defaultConfig {
@@ -16,9 +15,6 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
-
-
-
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
@@ -31,35 +27,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-//    flavorDimensions "default"
-//    productFlavors{
-//        urlDevelop{ //开发地址
-//
-//        }
-//        urlTest{ //测试环境
-//
-//        }
-//        urlYanshi_Tx{//演示环境 腾讯云
-//
-//        }
-//        urlFormat{//正式环境
-//
-//        }
-//    }
-
     //jdk1.8
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    sourceSets {
-        main {
-            manifest.srcFile 'src/main/AndroidManifest.xml'
-
-            jniLibs.srcDirs = ['libs']
-        }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
+
     //让studio提示程序员加前缀
     //resourcePrefix 只能限定Xml资源，并不能限定图片资源，图片资源扔需要自身注意设置前缀名
 //    resourcePrefix "${project.name}_"
@@ -82,7 +58,7 @@ dependencies {
 //    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 //
 //    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'com.gitee.cloud_international_wei_jiaqi:userc:2.0'
 
     implementation 'com.github.jitpack:android-example:1.0.1'
