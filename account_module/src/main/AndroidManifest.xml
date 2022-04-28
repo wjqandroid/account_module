@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
     package="com.visionvera.psychologist.account_module">
     <!--        tools:replace="android:icon,android:theme,android:label,android:appComponentFactory"-->
     <!--        android:appComponentFactory="base"-->
     <application
-
         >
         <activity
             android:name=".activity.AccountLoginActivity"

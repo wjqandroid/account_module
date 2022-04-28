@@ -3,7 +3,6 @@ apply plugin: "maven-publish"
 apply plugin: 'com.github.dcendents.android-maven'
 //控制lib模式或app模式
 apply plugin: 'com.android.library'
-
 //apply plugin: 'com.android.application'
 
 
