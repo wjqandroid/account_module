@@ -1,14 +1,11 @@
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: "maven-publish"
 apply plugin: 'com.github.dcendents.android-maven'
-
 //控制lib模式或app模式
-def isApplication = false
-if (isApplication) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
+apply plugin: 'com.android.library'
+
+//apply plugin: 'com.android.application'
+
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -21,10 +18,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
 
-        if (isApplication) {
-            //组件模式下设置applicationId
-            applicationId "com.visionvera.psychologist.account_module"
-        }
+
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -32,7 +26,6 @@ android {
             }
         }
     }
-
     buildTypes {
         release {
             minifyEnabled false
@@ -63,11 +56,8 @@ android {
     }
     sourceSets {
         main {
-            if (isApplication) {
-                manifest.srcFile 'src/main/java/module/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-            }
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+
             jniLibs.srcDirs = ['libs']
         }
     }

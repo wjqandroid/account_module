@@ -1,6 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "project_config.gradle"
-
 buildscript {
     repositories {
         maven { url 'https://www.jitpack.io' }
@@ -16,7 +15,6 @@ buildscript {
         // in the individual module build.gradle files
         // 添加神策分析 android-gradle-plugin2 依赖
         classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:3.3.7'
-
         classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.3.0' // add plugin belong
         // in the individual module build.gradle files
