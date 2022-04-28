@@ -82,7 +82,7 @@ dependencies {
 //    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 //
 //    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     implementation 'com.gitee.cloud_international_wei_jiaqi:userc:2.0'
 
     implementation 'com.github.jitpack:android-example:1.0.1'
