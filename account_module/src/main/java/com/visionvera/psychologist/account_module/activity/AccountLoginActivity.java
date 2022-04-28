@@ -31,7 +31,6 @@ import com.visionvera.library.eventbus.commonbean.LoginEventBus;
 import com.visionvera.library.util.MD5Utils;
 import com.visionvera.library.util.OneClickUtils;
 import com.visionvera.psychologist.account_module.R;
-import com.visionvera.psychologist.account_module.R2;
 import com.visionvera.psychologist.account_module.beans.AccountLoginRequestBean;
 import com.visionvera.psychologist.account_module.beans.AccountLoginResponseBean;
 import com.visionvera.psychologist.account_module.contracts.IContract;
@@ -63,12 +62,12 @@ public class AccountLoginActivity extends BaseMVPActivity<IContract.AccountLogin
     @Autowired(name = Constant.IntentKey.requestReturnCode)
     public int requestReturnCode;
 
-    @BindView(R2.id.et_password)
+//    @BindView(R2.id.et_password)
     EditText etPassword;
-    @BindView(R2.id.et_phoneNumber)
+//    @BindView(R2.id.et_phoneNumber)
     EditText etPhoneNumber;
-
-    @BindView(R2.id.checkBox)
+//
+//    @BindView(R2.id.checkBox)
     CheckBox checkBox;
 
     private AccountLoginIntentBean accountLoginIntentBean;
@@ -101,6 +100,9 @@ public class AccountLoginActivity extends BaseMVPActivity<IContract.AccountLogin
                 .keyboardEnable(true)
                 .init();
 
+        etPassword =(EditText) findViewById(R.id.et_password);
+        etPhoneNumber =(EditText)  findViewById(R.id.et_phoneNumber);
+        checkBox = (CheckBox) findViewById(R.id.checkBox);
         initIntentBean();
 
     }
@@ -140,54 +142,54 @@ public class AccountLoginActivity extends BaseMVPActivity<IContract.AccountLogin
     }
 
 
-    @OnClick({R2.id.btn_login, R2.id.tv_phone_login, R2.id.forget_password, R2.id.login_user_protocol, R2.id.tvt_register})
-    public void onViewClicked(View view) {
-        if (OneClickUtils.isFastClick()) {
-            return;
-        }
-        //点击按钮后，隐藏软键盘。因为测试中华为自带的密码键盘会遮挡toast的提示。
-        KeyboardUtils.hideSoftInput(this);
-        int viewId = view.getId();
-        if (viewId == R.id.tv_phone_login) {
-
-            PhoneLoginActivity.PhoneLoginIntentBean intentBean = new PhoneLoginActivity.PhoneLoginIntentBean(requestReturnCode);
-            PhoneLoginActivity.startActivityForResult(this, intentBean);
-
-        } else if (viewId == R.id.forget_password) {
-            //忘记密码
-            ARouter.getInstance().build(ARouterConstant.UserCenter.forgetPasswordActivity).navigation();
-        } else if (viewId == R.id.btn_login) {
-            if (TextUtils.isEmpty(etPhoneNumber.getText().toString().trim())) {
-                ToastUtils.showShort(getString(R.string.account_module_phone_num_not_empty));
-                return;
-            }
-            if (etPhoneNumber.getText().toString().trim().length() != 11) {
-                ToastUtils.showShort(getString(R.string.account_module_phone_num_error));
-                return;
-            }
-            if (TextUtils.isEmpty(etPassword.getText().toString().trim())) {
-                ToastUtils.showShort(getString(R.string.account_module_password_not_empty));
-                return;
-            }
-            if (!checkBox.isChecked()) {
-                ToastUtils.showShort(getString(R.string.account_module_please_check_protocol));
-                return;
-            }
-
-            requestLogin(etPhoneNumber.getText().toString().trim(),
-                    etPassword.getText().toString().trim());
-
-        } else if (viewId == R.id.login_user_protocol) {
-            //用户协议
-            ProtocolActivity.startActivity(this, Constant.Url.request_base_url + Constant.WebUrl.user_protocol, "粤心安用户许可协议");
-
-        } else if (viewId == R.id.tvt_register) {
-            //注册
-//            startActivity(new Intent(activity, RegisterActivity.class));
-            PhoneLoginActivity.PhoneLoginIntentBean intentBean = new PhoneLoginActivity.PhoneLoginIntentBean(requestReturnCode);
-            PhoneLoginActivity.startActivityForResult(this, intentBean);
-        }
-    }
+//    @OnClick({R2.id.btn_login, R2.id.tv_phone_login, R2.id.forget_password, R2.id.login_user_protocol, R2.id.tvt_register})
+//    public void onViewClicked(View view) {
+//        if (OneClickUtils.isFastClick()) {
+//            return;
+//        }
+//        //点击按钮后，隐藏软键盘。因为测试中华为自带的密码键盘会遮挡toast的提示。
+//        KeyboardUtils.hideSoftInput(this);
+//        int viewId = view.getId();
+//        if (viewId == R.id.tv_phone_login) {
+//
+//            PhoneLoginActivity.PhoneLoginIntentBean intentBean = new PhoneLoginActivity.PhoneLoginIntentBean(requestReturnCode);
+//            PhoneLoginActivity.startActivityForResult(this, intentBean);
+//
+//        } else if (viewId == R.id.forget_password) {
+//            //忘记密码
+//            ARouter.getInstance().build(ARouterConstant.UserCenter.forgetPasswordActivity).navigation();
+//        } else if (viewId == R.id.btn_login) {
+//            if (TextUtils.isEmpty(etPhoneNumber.getText().toString().trim())) {
+//                ToastUtils.showShort(getString(R.string.account_module_phone_num_not_empty));
+//                return;
+//            }
+//            if (etPhoneNumber.getText().toString().trim().length() != 11) {
+//                ToastUtils.showShort(getString(R.string.account_module_phone_num_error));
+//                return;
+//            }
+//            if (TextUtils.isEmpty(etPassword.getText().toString().trim())) {
+//                ToastUtils.showShort(getString(R.string.account_module_password_not_empty));
+//                return;
+//            }
+//            if (!checkBox.isChecked()) {
+//                ToastUtils.showShort(getString(R.string.account_module_please_check_protocol));
+//                return;
+//            }
+//
+//            requestLogin(etPhoneNumber.getText().toString().trim(),
+//                    etPassword.getText().toString().trim());
+//
+//        } else if (viewId == R.id.login_user_protocol) {
+//            //用户协议
+//            ProtocolActivity.startActivity(this, Constant.Url.request_base_url + Constant.WebUrl.user_protocol, "粤心安用户许可协议");
+//
+//        } else if (viewId == R.id.tvt_register) {
+//            //注册
+////            startActivity(new Intent(activity, RegisterActivity.class));
+//            PhoneLoginActivity.PhoneLoginIntentBean intentBean = new PhoneLoginActivity.PhoneLoginIntentBean(requestReturnCode);
+//            PhoneLoginActivity.startActivityForResult(this, intentBean);
+//        }
+//    }
 
 
     @Override
