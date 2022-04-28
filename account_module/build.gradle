@@ -1,7 +1,8 @@
+apply plugin: 'com.jakewharton.butterknife'
 apply plugin: "maven-publish"
 //apply plugin: "upload"
-//apply plugin: "com.android.application"
-apply plugin: "com.android.library"
+apply plugin: "com.android.application"
+//apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply plugin: 'com.github.dcendents.android-maven'
 group = 'com.github.base'
@@ -59,7 +60,6 @@ dependencies {
 ////    implementation(name:'base_module-urlFormat-debug', ext:'aar')
 //
 //
-//    annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
 //
 //    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -81,6 +81,7 @@ dependencies {
     //   地址：https://github.com/qyxxjd/MultipleStatusView
     // 一个支持多种状态的自定义View,可以方便的切换到：加载中视图、错误视图、空数据视图、网络异常视图、内容视图。
     api 'com.classic.common:multiple-status-view:1.6'
+
     annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
     implementation 'com.alibaba:arouter-api:1.5.0'
 
@@ -101,7 +102,6 @@ dependencies {
 
     //  地址：https://github.com/JakeWharton/butterknife,便于快速找到xml中的控件，代替findviewbyid
     implementation  'com.jakewharton:butterknife:10.2.0'
-
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
 
     //  地址：https://github.com/orhanobut/logger,打log的著名库，使用方便，格式美观，便于管理。
